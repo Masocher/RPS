@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rock-Paper-Scissors</title>
+        <link rel="stylesheet" href="./index.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.js" integrity="sha512-S1KaVll2UTj29SOXML7O4LxU7zEoQhJgnondHE/ZvNrk7H4Rc9TLFKDaWuEzsHmAEkJnWFedc0hcVrpvFTOlwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+    <body>
+
+        <div class="red_layer"></div>
+        <div class="red_layer_2"></div>
+
+        <div class="blue_layer"></div>
+        <div class="blue_layer_2"></div>
+
+        <div class="yellow_layer"></div>
+        <div class="yellow_layer_2"></div>
+
+        <div class="header">
+            <div class="logo">
+                <span class="span_red">R</span>
+                <span class="span_blue">P</span>
+                <span class="span_yellow">S</span>
+            </div>
+
+            <div class="score_box">score :<div>0</div></div>
+        </div>
+
+        <main>
+            <div class="back_red" id="0">
+                <i class="fa-solid fa-hand-back-fist" style="background-color: #fff; width: 35px; height: 35px; padding: 25px 27px; border-radius: 50%;"></i>
+                <p>Rock</p>
+            </div>
+            
+            <div class="back_blue" id="1">
+                <i class="fa-solid fa-hand" style="background-color: #fff; width: 35px; height: 35px; padding: 25px; border-radius: 50%;"></i>
+                <p>Paper</p>
+            </div>
+
+            <div class="back_yellow" id="2">
+                <i class="fa-solid fa-hand-scissors" style="background-color: #fff; width: 35px; height: 35px; padding: 25px; border-radius: 50%;"></i>
+                <p>Scissors</p>
+            </div>
+        </main>
+        
+        <script>
+            let rock = document.querySelector('.back_red')
+            let paper = document.querySelector('.back_blue')
+            let scissors = document.querySelector('.back_yellow')
+
+            let red_layer = document.querySelector('.red_layer')
+            let red_layer_2 = document.querySelector('.red_layer_2')
+
+            let blue_layer = document.querySelector('.blue_layer')
+            let blue_layer_2 = document.querySelector('.blue_layer_2')
+
+            let yellow_layer = document.querySelector('.yellow_layer')
+            let yellow_layer_2 = document.querySelector('.yellow_layer_2')
+
+            const matchScanner = (item, random_num) => {
+                switch (item, random_num) {
+                    case item === 0 && random_num === 0:
+                        console.log('equality - rock')
+                        break;
+                    
+                    case item === 0 && random_num === 1:
+                        console.log('rock failed')
+                        break;
+
+                    case item === 0 && random_num === 2:
+                        console.log('rock won')
+                        break;
+
+                    case item === 1 && random_num === 1:
+                        console.log('equality - paper')
+                        break;
+
+                    case item === 1 && random_num === 2:
+                        console.log('paper failed')
+                        break;
+
+                    case item === 2 && random_num === 2:
+                        console.log('equality - scissors')
+                        break;
+                
+                    default:
+                        break;
+                }
+            }
+
+            const match = (item) => {
+                let random_num = Math.random() * 3
+
+                matchScanner(item, random_num)
+
+                if (Math.floor(random_num) === 0) {
+                    red_layer.innerHTML = `
+                        <div class="back_red_box box_2">
+                            <i class="fa-solid fa-hand-back-fist" style="background-color: #fff; width: 35px; height: 35px; padding: 25px 27px; border-radius: 50%;"></i>
+                        </div>
+                    `
+                    blue_layer.innerHTML = `
+                        <div class="back_red_box box_2">
+                            <i class="fa-solid fa-hand-back-fist" style="background-color: #fff; width: 35px; height: 35px; padding: 25px 27px; border-radius: 50%;"></i>
+                        </div>
+                    `
+                    yellow_layer.innerHTML = `
+                        <div class="back_red_box box_2">
+                            <i class="fa-solid fa-hand-back-fist" style="background-color: #fff; width: 35px; height: 35px; padding: 25px 27px; border-radius: 50%;"></i>
+                        </div>
+                    `                
+                } else if (Math.floor(random_num) === 1) {
+                    red_layer.innerHTML = `
+                        <div class="back_blue_box box_2">
+                            <i class="fa-solid fa-hand" style="background-color: #fff; width: 35px; height: 35px; padding: 25px; border-radius: 50%;"></i>
+                        </div>
+                    `
+                    blue_layer.innerHTML = `
+                        <div class="back_blue_box box_2">
+                            <i class="fa-solid fa-hand" style="background-color: #fff; width: 35px; height: 35px; padding: 25px; border-radius: 50%;"></i>
+                        </div>
+                    `
+                    yellow_layer.innerHTML = `
+                        <div class="back_blue_box box_2">
+                            <i class="fa-solid fa-hand" style="background-color: #fff; width: 35px; height: 35px; padding: 25px; border-radius: 50%;"></i>
+                        </div>
+                    `
+                } else if (Math.floor(random_num) === 2) {
+                    red_layer.innerHTML = `
+                        <div class="back_yellow_box box_2">
+                            <i class="fa-solid fa-hand-scissors" style="background-color: #fff; width: 35px; height: 35px; padding: 25px; border-radius: 50%;"></i>
+                        </div>
+                    `
+                    blue_layer.innerHTML = `
+                        <div class="back_yellow_box box_2">
+                            <i class="fa-solid fa-hand-scissors" style="background-color: #fff; width: 35px; height: 35px; padding: 25px; border-radius: 50%;"></i>
+                        </div>
+                    `
+                    yellow_layer.innerHTML = `
+                        <div class="back_yellow_box box_2">
+                            <i class="fa-solid fa-hand-scissors" style="background-color: #fff; width: 35px; height: 35px; padding: 25px; border-radius: 50%;"></i>
+                        </div>
+                    `
+                }
+                if (item === 0) {
+                    red_layer_2.innerHTML = `
+                        <div class="back_red_box">
+                            <div class='title'>your choice</div>
+                            <i class="fa-solid fa-hand-back-fist" style="background-color: #fff; width: 35px; height: 35px; padding: 25px 27px; border-radius: 50%;"></i>
+                        </div>
+                    `
+                } else if (item === 1) {
+                    blue_layer_2.innerHTML = `
+                        <div class="back_blue_box">
+                            <div class='title'>your choice</div>
+                            <i class="fa-solid fa-hand" style="background-color: #fff; width: 35px; height: 35px; padding: 25px; border-radius: 50%;"></i>
+                        </div>
+                    `
+                } else if (item === 2) {
+                    yellow_layer_2.innerHTML = `
+                        <div class="back_yellow_box">
+                            <div class='title'>your choice</div>
+                            <i class="fa-solid fa-hand-scissors" style="background-color: #fff; width: 35px; height: 35px; padding: 25px; border-radius: 50%;"></i>
+                        </div>
+                    `
+                }
+            }
+
+            rock.addEventListener("click" , () => {
+                match(0)
+                red_layer.classList.add('show')
+                red_layer_2.classList.add('show')
+                setTimeout(() => {
+                    red_layer.classList.remove('show')
+                    red_layer_2.classList.remove('show')
+                }, 3500);
+            })
+
+            paper.addEventListener("click" , () => {
+                match(1)
+                blue_layer.classList.add('show')
+                blue_layer_2.classList.add('show')
+                setTimeout(() => {
+                    blue_layer.classList.remove('show')
+                    blue_layer_2.classList.remove('show')
+                }, 3500);
+            })
+
+            scissors.addEventListener("click" , () => {
+                match(2)
+                yellow_layer.classList.add('show')
+                yellow_layer_2.classList.add('show')
+                setTimeout(() => {
+                    yellow_layer.classList.remove('show')
+                    yellow_layer_2.classList.remove('show')
+                }, 3500);
+            })
+        </script>
+    </body>
+</html>
