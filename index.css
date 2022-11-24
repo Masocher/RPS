@@ -257,15 +257,3 @@ main {
     transform: translate(-50%, 0);
     top: 230px;
 }
-
-.system_title {
-    font-size: 30px;
-    color: #fff;
-    font-weight: bold;
-    position: absolute;
-    left: 50%;
-    transform: rotateZ(180deg);
-    transform: translate(-50%, 0);
-    top: 100px;
-    display: flex;
-}

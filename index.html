@@ -26,7 +26,7 @@
                 <span class="span_yellow">S</span>
             </div>
 
-            <div class="score_box">score :<div>0</div></div>
+            <div class="score_box"></div>
         </div>
 
         <main>
@@ -60,41 +60,59 @@
             let yellow_layer = document.querySelector('.yellow_layer')
             let yellow_layer_2 = document.querySelector('.yellow_layer_2')
 
+            let score_box = document.querySelector('.score_box')
+
+            let score = 0
+
+            score_box.innerHTML = `score :<div>${ score }</div>`
+
             const matchScanner = (item, random_num) => {
-                switch (item, random_num) {
-                    case item === 0 && random_num === 0:
-                        console.log('equality - rock')
-                        break;
-                    
-                    case item === 0 && random_num === 1:
-                        console.log('rock failed')
-                        break;
+                console.log(item);
+                console.log(random_num);
 
-                    case item === 0 && random_num === 2:
-                        console.log('rock won')
-                        break;
-
-                    case item === 1 && random_num === 1:
-                        console.log('equality - paper')
-                        break;
-
-                    case item === 1 && random_num === 2:
-                        console.log('paper failed')
-                        break;
-
-                    case item === 2 && random_num === 2:
-                        console.log('equality - scissors')
-                        break;
-                
-                    default:
-                        break;
+                if (item === 0 && random_num === 0) {
+                    alert('equality')
+                } else if (item === 0 && random_num === 1) {
+                    if (score <= 0) {
+                        score = 0
+                    } else {
+                        score -= 1
+                    }
+                    score_box.innerHTML = `score :<div>${ score }</div>`
+                } else if (item === 0 && random_num === 2) {
+                    score += 1
+                    score_box.innerHTML = `score :<div>${ score }</div>`
+                } else if (item === 1 && random_num === 1) {
+                    alert('equality')
+                } else if (item === 1 && random_num === 2) {
+                    if (score <= 0) {
+                        score = 0
+                    } else {
+                        score -= 1
+                    }
+                    score_box.innerHTML = `score :<div>${ score }</div>`
+                } else if (item === 1 && random_num === 0) {
+                    score += 1
+                    score_box.innerHTML = `score :<div>${ score }</div>`
+                } else if (item === 2 && random_num === 2) {
+                    alert('equality')
+                } else if (item === 2 && random_num === 1) {
+                    score += 1
+                    score_box.innerHTML = `score :<div>${ score }</div>`
+                } else if (item === 2 && random_num === 0) {
+                    if (score <= 0) {
+                        score = 0
+                    } else {
+                        score -= 1
+                    }
+                    score_box.innerHTML = `score :<div>${ score }</div>`
                 }
             }
 
             const match = (item) => {
                 let random_num = Math.random() * 3
 
-                matchScanner(item, random_num)
+                matchScanner(item, Math.floor(random_num))
 
                 if (Math.floor(random_num) === 0) {
                     red_layer.innerHTML = `
